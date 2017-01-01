@@ -1,0 +1,105 @@
+ #menuButton {
+     z-index: 3;
+     margin-right: 30px;
+     margin-top: 27px;
+ }
+
+ #menuButton:hover {
+     transform: scale(1.5);
+ }
+
+ #menuButton span {
+     height: 4px;
+     width: 25px;
+     background-color: red;
+ }
+
+ @media screen and (max-width: 767px) {
+     #sideNavWrapper {
+         z-index: 1;
+         height: 100%;
+         width: 100%;
+         background-color: rgba(0, 0, 0, 0.9);
+         position: fixed;
+         top: 0;
+         left: 0;
+         overflow-x: hidden;
+         transition: 0.5s;
+         display: none;
+     }
+     .mobileNavOverlay {
+         font-family: 'Open Sans';
+         font-size: 20px;
+         height: 100%;
+         width: 0;
+         position: fixed;
+         z-index: 2;
+         left: 100%;
+         top: 0;
+         padding-top: 75px;
+         background-color: #332430;
+         overflow-x: hidden;
+         transition: 0.5s;
+     }
+     .mobileNavOverlay ul {
+         display: none;
+         flex-direction: column;
+         justify-content: flex-start;
+         padding-left: 0;
+         width: 100%;
+         transition: 2s;
+     }
+     .mobileNavOverlay ul .divide {
+         height: 1px;
+         background-color: white;
+         margin-left: 7%;
+         margin-right: 39%;
+     }
+     .mobileNavOverlay ul li {
+         height: 100%;
+         width: 65%;
+         text-align: center;
+         list-style-type: none;
+         position: relative;
+         top: 25%;
+         margin-top: 30px;
+         margin-bottom: 30px;
+         padding-left: 5%;
+     }
+     .mobileNavOverlay ul li a {
+         text-align: center;
+         padding: 8px;
+         text-decoration: none;
+         font-size: 30px;
+         color: white;
+         transition: 0.3s;
+     }
+     .mobileNavOverlay ul li a:hover {
+         color: #999;
+     }
+     .relativePositioning {
+         position: relative;
+     }
+ }
+
+ @media screen and (min-width: 768px) {
+     .mobileNavOverlay,
+     #sideNavWrapper {
+         display: none;
+     }
+ }
+
+ .navbar {
+     position: relative;
+     min-height: 50px;
+     margin-bottom: 20px;
+     border: 1px solid transparent;
+ }
+
+ .navbar-header {
+     border-bottom: 2px solid blue;
+ }
+
+footer{
+    border-top: 2px solid blue;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="mockup.css" >
+</head>
+
+<body>
+    <style>
+
+
+    </style>
+    <nav class="navbar">
+    <div id="sideNavWrapper">
+    </div>
+    <div class="navbar-header">
+              <button type="button" id="menuButton" class="navbar-toggle collapsed" onclick="toggleNav()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar fa-3x"></span>
+                <span class="icon-bar fa-3x"></span>
+                <span class="icon-bar fa-3x"></span>
+              </button>
+              <a class="navbar-brand navbar-logo" href="{% url 'core:home' %}">
+                <img src="{% static "images/logo-mobile.svg" %}" class="navbar-logo-mobile" alt="MyDrinkNation" title="My Drink Nation" height="60px">
+                <!--<img src="{% static "images/logo.png" %}" class="navbar-logo-full" alt="MyDrinkNation" title="My Drink Nation" height="60px">-->
+              </a>
+            </div>
+
+            <div class="collapse navbar-collapse" collapse="navbarCollapsed" >
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'core:about' %}">WHAT WE DO</a></li>
+                <li><a href="{% url 'bars:bar-contact' %}">FOR BARS</a></li>
+                <li><a href="{% url 'user:register' %}">REGISTER</a></li>
+                <li><a href="{% url 'user:login' %}">LOGIN</a></li>
+              </ul>
+            </div>
+    <div class="mobileNavOverlay" id="mobileLoggedOutHome">
+        <div class="relativePositioning">
+            <ul>
+                <li>
+                    <a href="#">WHAT WE DO</a>
+                </li>
+                <div class="divide"></div>
+                <li>
+                    <a href="#">FOR BARS</a>
+                </li>
+                <div class="divide"></div>
+                <li>
+                    <a href="#">REGISTER</a>
+                </li>
+                <div class="divide"></div>
+                <li>
+                    <a href="#">LOGIN</a>
+                </li>
+                <li>
+                    <a href="#">MOCKUP</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </nav>
+        <div class="container">
+            <form  method="POST" style="display: flex;flex-direction: column;"  >
+                <label > vendor</label>
+                <input type="text" id="vendor" >
+                <label > vendor</label>
+                <input type="text" name="" value="">
+                <label > vendor</label>
+                <input type="text" name="" value="">
+                <br/>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    <footer>
+
+    </footer>
+    <script>
+        var toggleFlag = false;
+        var trigger = document.getElementById("sideNavWrapper");
+
+        function toggleNav() {
+            if (toggleFlag == true) {
+                document.getElementById("mobileLoggedOutHome").style.width = 0;
+                document.getElementById("mobileLoggedOutHome").style.left = '100%';
+                document.getElementById("sideNavWrapper").style.display = 'none';
+                document.querySelectorAll("#mobileLoggedOutHome  ul")[0].style.display = 'none';
+                toggleFlag = false;
+            } else {
+                document.getElementById("sideNavWrapper").style.display = 'block';
+                document.getElementById("mobileLoggedOutHome").style.width = '100%';
+                document.getElementById("mobileLoggedOutHome").style.left = '35%';
+                setTimeout(function () {
+                    document.querySelectorAll("#mobileLoggedOutHome  ul")[0].style.display = 'flex'
+                }, 400);
+
+                toggleFlag = true;
+            }
+        }
+
+        window.onclick = function (event) {
+            if (event.target == trigger) {
+                document.getElementById("mobileLoggedOutHome").style.width = 0;
+                document.getElementById("mobileLoggedOutHome").style.left = '100%';
+                document.getElementById("sideNavWrapper").style.display = 'none';
+                toggleFlag = false;
+
+            }
+        }
+    </script>
+</body>
+
+</html>
